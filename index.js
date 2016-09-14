@@ -31,4 +31,4 @@ app.post('/ideas', saveNewIdea);
 
 //listen for connections on port 3000
 app.listen(3000);
-console.log("I am listening...");
+console.log("How may I help you?");
