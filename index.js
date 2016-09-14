@@ -13,7 +13,9 @@ app.use(bodyParser.json())
 
 //make an empty list of ideas
 var posts = [];
-posts.push("Two cats who solve crimes in Dunedin");
+var idea = {};
+idea.text = "Two cats who solve crimes in Dunedin";
+posts.push(idea);
 
 //let a client GET the list of ideas
 var sendIdeasList = function (request, response) {
@@ -24,16 +26,21 @@ app.get('/ideas', sendIdeasList);
 //let a client POST new ideas
 var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
-  posts.push(request.body.idea); //save it in our list
+  var idea = {};
+idea.text = request.body.idea;
+posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
+
   var dbPosts = database.collection('posts');
 dbPosts.insert(idea);
+
 }
 app.post('/ideas', saveNewIdea);
 
 //listen for connections on port 3000
-app.listen(3000);
-console.log("How may I help you?");
+
+app.listen(process.env.PORT || 3000);
+console.log("How may I listen to you?");
 var mongodb = require('mongodb');
 var uri = 'mongodb://girlcode:hats123@ds029476.mlab.com:29476/girlcode-henderson';
 mongodb.MongoClient.connect(uri, function(err, newdb) {
