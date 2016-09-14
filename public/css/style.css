@@ -27,24 +27,11 @@ input[type=name] {
   font-family: monospace;
   display: inline;
 
-  
+  width: 800px;
   font-size: 50px;
     border-radius: 8px;
-    text-align: center;
-    background-color: #B7F9FD;
-}
-input[type=text] {
-color: darkgray;
-border: gray;
-border-style: solid;
-    border-width: 5px;
-font-family: monospace;
-width: 800px;
 
-font-size: 50px;
-  border-radius: 8px;
-  text-align: center;
-  background-color: #B7F9FD;
+    background-color: #B7F9FD;
 }
 
 input[type=submit] {
