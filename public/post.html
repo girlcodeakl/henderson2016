@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="jquery-1.12.4.min.js"></script>
-    <meta charset='utf-8'>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-      <form method="post" action="/ideas">
-          <input type="text" name="idea" value="idea goes here">
-          <input type="submit" value="Submit">
-      </form>
-  </body>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <form  method="post" action="/ideas"  class=jquary  >
+    <input type="text" name="idea" value="Idea goes here" class=ideaImput>
+    <input type="submit" value="Submit">
+  </form>
+  <div class="note"></div>
+  <script>
+  var myCoolFunction = function (e) {
+        e.preventDefault();
+var data = {};
+    data.idea = $(".ideaInput").val();
+    $.post( "/ideas" , data );
+
+    $(".note").text("Thanks! Your idea was submitted");
+  }
+  $(".jquary").on("submit", myCoolFunction);
+  </script>
+</body>
 </html>
