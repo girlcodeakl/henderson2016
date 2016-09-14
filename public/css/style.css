@@ -1,20 +1,21 @@
 body {
   color: black;
+  background-color: #f2f2f2;
 }
 .idea-box {
-  background-color: #FFF0A5;
+  background-color: #bfbfbf;
   padding: 20px;
 }
 h1 {
   text-align: center;
-  color: #white;
+  color: #808080;
 }
 
 h2 {
-  color: #468966;
+  color: #ffffff;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #FFB03B;
+  border: 2px solid #808080;
   border-radius: 5px;
   text-align: center;
 }
@@ -23,7 +24,7 @@ ul {
     margin: 0;
     padding: 0;
     width: 203px;
-    background-color: #d1e0e0;
+    background-color: #bfbfbf;
 }
 
 li a {
@@ -35,6 +36,6 @@ li a {
 
 /* Change the link color on hover */
 li a:hover {
-    background-color: ##9f9fdf;
+    background-color: ##f2f2f2;
     color: white;
 }
