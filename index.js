@@ -2,7 +2,7 @@
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser')
-
+var database = null;
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
 app.use(express.static(__dirname + '/public'));
@@ -26,9 +26,26 @@ var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
   posts.push(request.body.idea); //save it in our list
   response.send("thanks for your idea. Press back to add another");
+  var dbPosts = database.collection('posts');
+dbPosts.insert(idea);
 }
 app.post('/ideas', saveNewIdea);
 
 //listen for connections on port 3000
 app.listen(3000);
 console.log("How may I help you?");
+var mongodb = require('mongodb');
+var uri = 'mongodb://girlcode:hats123@ds029476.mlab.com:29476/girlcode-henderson';
+mongodb.MongoClient.connect(uri, function(err, newdb) {
+  if(err) throw err;
+  console.log("yay we connected to the database");
+  database = newdb;
+  var dbPosts = database.collection('posts');
+  dbPosts.find(function (err, cursor) {
+    cursor.each(function (err, item) {
+      if (item != null) {
+        posts.push(item);
+      }
+    });
+  });
+});
