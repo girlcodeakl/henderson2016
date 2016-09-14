@@ -7,14 +7,14 @@
 </head>
 <body>
   <form  method="post" action="/ideas"  class=jquary  >
-    <input type="text" name="idea" value="Idea goes here" class=ideaImput>
+    <input type="text" name="idea" placeholder="Give us your ideas here" class=ideaImput>
     <input type="submit" value="Submit">
   </form>
   <div class="note"></div>
   <script>
   var myCoolFunction = function (e) {
-        e.preventDefault();
-var data = {};
+    e.preventDefault();
+    var data = {};
     data.idea = $(".ideaInput").val();
     $.post( "/ideas" , data );
 
