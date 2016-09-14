@@ -1,5 +1,6 @@
 body {
   color: black;
+  text-align: center;
 }
 .idea-box {
   background-color: #FFF0A5;
@@ -18,18 +19,37 @@ h2 {
   border-radius: 5px;
   text-align: center;
 }
+input[type=name] {
+  color: darkgray;
+  border: gray;
+  border-style: solid;
+      border-width: 5px;
+  font-family: monospace;
+  display: inline;
+
+  
+  font-size: 50px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #B7F9FD;
+}
 input[type=text] {
 color: darkgray;
 border: gray;
 border-style: solid;
     border-width: 5px;
 font-family: monospace;
-position: center;
+width: 800px;
+
+font-size: 50px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #B7F9FD;
 }
 
 input[type=submit] {
-  color: white;
+  color: dark gray;
   border: none;
-  background-color: #B7FDDE;
+  background-color: #B7F9FD;
   border-radius: 8px;
-}
+   font-weight: bold;
