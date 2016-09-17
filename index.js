@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 //make an empty list of ideas
 var posts = [];
 var idea = {};
+idea.id = 1001;
 idea.text = "Two cats who solve crimes in Dunedin";
 posts.push(idea);
 
@@ -28,6 +29,7 @@ var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
   var idea = {};
 idea.text = request.body.idea;
+idea.id = Math.round(Math.random() * 10000);
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
 
@@ -35,9 +37,20 @@ posts.push(idea);
 dbPosts.insert(idea);
 
 }
+
 app.post('/ideas', saveNewIdea);
 
 //listen for connections on port 3000
+app.get('/idea', function (req, res) {
+   var searchId = req.query.id;
+   console.log("Searching for post " + searchId);
+   var results = posts.filter(function (post) { return post.id == searchId; });
+   if (results.length > 0) {
+     res.send(results[0]);
+   } else {
+   res.send(null);
+   }
+});
 
 app.listen(process.env.PORT || 3000);
 console.log("How may I listen to you?");
