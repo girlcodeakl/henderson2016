@@ -22,6 +22,9 @@ var displayIdea = function(idea) {
   var ideaElement = $('<h2>' + idea.text + " by " + idea.author +  '</h2>');
   $(".idea-box").append(ideaElement);
 
+  ideaElement.on("click", function() {
+        alert("You liked: " + idea.text + "!");
+    });
 }
 
 var createFeed = function(data) {
