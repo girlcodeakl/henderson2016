@@ -19,8 +19,12 @@
 //Hello! This is the start of the JavaScript.
 
 var displayIdea = function(idea) {
-var ideaElement = $('<h2>' + idea.text + '<div class="postId">' + idea.id + '</div>' + '</h2>');
+  var ideaElement = $('<h2>' + idea.text + " by " + idea.author + '</h2>');
   $(".idea-box").append(ideaElement);
+
+  ideaElement.on("click", function() {
+        alert("You liked: " + idea.text + "!");
+    });
 
 }
 
