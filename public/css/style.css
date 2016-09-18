@@ -1,4 +1,5 @@
 body {
+    text-align: center;
 
   color: black;
   background-color: #f2f2f2;
@@ -60,6 +61,7 @@ ul {
     padding: 0;
     width: 203px;
     background-color: #bfbfbf;
+    text-align: left;
 }
 
 li a {
