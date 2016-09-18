@@ -12,8 +12,11 @@
     <li><a href="/post.html">Post</a></li>
   </ul>
   <form  method="post" action="/ideas"  class=jquary  >
+  <br>Post<br>
     <input type="text" name="idea" placeholder="Submit your ideas here..." class=ideaInput>
+    <br><br>Name<br>
     <input type="text" name="author" placeholder="Enter your name here..." class=authorInput>
+    <br>
     <input type="submit" value="Submit">
   </form>
   <div class="note"> </div>
@@ -25,7 +28,7 @@
     data.author = $(".authorInput").val();
     $.post( "/ideas" , data );
 
-    $(".note").text("Thanks! Your idea was submitted");
+    $(".note").text("Thanks! Your idea was submitted!");
   }
   $(".jquary").on("submit", myCoolFunction);
 
