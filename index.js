@@ -34,6 +34,9 @@ var saveNewIdea = function (request, response) {
 idea.text = request.body.idea;
 idea.author = request.body.author;
 idea.url = request.body.url;
+if (idea.url===""){
+  idea.url="https://thumbs.dreamstime.com/thumb_659/6599242.jpg"
+}
 idea.id = Math.round(Math.random() * 10000);
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
