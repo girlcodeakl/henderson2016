@@ -16,6 +16,7 @@ var posts = [];
 var idea = {};
 idea.id = 1001;
 idea.text = "Two cats who solve crimes in Dunedin";
+idea.time = new Date();
 posts.push(idea);
 
 //let a client GET the list of ideas
@@ -30,8 +31,10 @@ var saveNewIdea = function (request, response) {
   var idea = {};
 idea.text = request.body.idea;
 idea.id = Math.round(Math.random() * 10000);
+idea.time = new Date();
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
+
 
   var dbPosts = database.collection('posts');
 dbPosts.insert(idea);
