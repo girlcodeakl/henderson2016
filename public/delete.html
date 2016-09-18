@@ -13,12 +13,8 @@
   </ul>
   <form  method="post" action="/ideas"  class=jquary  >
 
-  <br>Post<br>
-    <input type="text" name="idea" placeholder="Submit your ideas here..." class=ideaInput>
-    <br><br>Name<br>
-    <input type="text" name="author" placeholder="Enter your name here..." class=authorInput>
-    <br><br>Image<br>
-    <input type="text" name="url" placeholder="Enter image URL here..." class=urlInput><br><br>
+  <br>Delete A Post<br>
+    <input class="Id" type="text" name="Id" placeholder="Enter Id You Want To Delete...">
     <input type="submit" value="Submit">
   </form>
   <div class="note"> </div>
@@ -26,10 +22,8 @@
   var myCoolFunction = function (e) {
     e.preventDefault();
     var data = {};
-    data.idea = $(".ideaInput").val();
-    data.author = $(".authorInput").val();
-      data.url = $(".urlInput").val();
-    $.post( "/ideas" , data );
+      data.Id = $(".Id").val();
+    $.post( "/delete" , data );
 
     $(".note").text("Thanks! Your idea was submitted!");
   }
