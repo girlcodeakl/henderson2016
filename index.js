@@ -16,7 +16,7 @@ var posts = [];
 var idea = {};
 idea.id = 1001;
 idea.url = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg"
-idea.text = "Two cats who solve crimes in Dunedin";
+idea.text = "Love - A";
 posts.push(idea);
 
 //let a client GET the list of ideas
@@ -36,7 +36,13 @@ idea.author = request.body.author;
 idea.url = request.body.url;
 if (idea.url===""){
   idea.url="https://thumbs.dreamstime.com/thumb_659/6599242.jpg"
+
+
 }
+images {
+    max-width:20px;
+}
+
 idea.id = Math.round(Math.random() * 10000);
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
@@ -44,7 +50,7 @@ posts.push(idea);
   var dbPosts = database.collection('posts');
 dbPosts.insert(idea);
 
-}
+
 
 app.post('/ideas', saveNewIdea);
 
