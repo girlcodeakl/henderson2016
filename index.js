@@ -18,6 +18,7 @@ idea.likes = 0;
 idea.id = 1001;
 idea.url = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg"
 idea.text = "Two cats who solve crimes in Dunedin";
+idea.time = new Date();
 posts.push(idea);
 
 //let a client GET the list of ideas
@@ -42,9 +43,10 @@ if (idea.url===""){
   idea.url="https://thumbs.dreamstime.com/thumb_659/6599242.jpg"
 }
 idea.id = Math.round(Math.random() * 10000);
-
+idea.time = new Date();
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
+
 
   var dbPosts = database.collection('posts');
 dbPosts.insert(idea);
