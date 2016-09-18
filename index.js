@@ -51,7 +51,23 @@ dbPosts.insert(idea);
 
 }
 
+var deleteIdea = function (request, response) {
+  console.log(request.body.Id); //write it on the command prompt so we can see
+  response.send("Thanks For Deleting!");
+
+  var dbPosts = database.collection('posts');
+  dbPosts.deleteMany({ id : parseInt(request.body.Id) })
+for (var i=0; i < posts.length; i++) {
+  var post = posts[i];
+  if (post.id === parseInt(request.body.Id)) {
+    posts.splice(i, 1);
+  }
+}
+//dbPosts.insert(idea);
+
+}
 app.post('/ideas', saveNewIdea);
+app.post('/delete', deleteIdea);
 
 app.post("/liked", function (req, res) {
     //code goes here
