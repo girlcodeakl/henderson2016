@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 //make an empty list of ideas
 var posts = [];
 var idea = {};
+idea.likes = 0;
 idea.id = 1001;
 idea.url = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg"
 idea.text = "Two cats who solve crimes in Dunedin";
@@ -30,11 +31,15 @@ var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
   console.log(request.body.author);
   console.log(request.body.url);
+
+
   var idea = {};
+  idea.likes = 0;
 idea.text = request.body.idea;
 idea.author = request.body.author;
 idea.url = request.body.url;
 idea.id = Math.round(Math.random() * 10000);
+
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
 
@@ -45,13 +50,27 @@ dbPosts.insert(idea);
 
 app.post('/ideas', saveNewIdea);
 
+app.post("/liked", function (req, res) {
+    //code goes here
+    console.log(req.body.postId);
+   var searchId = req.body.postId;
+   var results = posts.filter(function (post) { return post.id == searchId; });
+   if (results.length > 0) {
+     idea = results[0]
+  idea.likes = idea.likes + 1}
+console.log(results)
+res.send(idea);
+
+});
+
 //listen for connections on port 3000
 app.get('/idea', function (req, res) {
    var searchId = req.query.id;
    console.log("Searching for post " + searchId);
    var results = posts.filter(function (post) { return post.id == searchId; });
    if (results.length > 0) {
-     res.send(results[0]);
+     var post = results[0]
+     res.send(post);
    } else {
    res.send(null);
    }

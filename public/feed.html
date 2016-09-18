@@ -19,11 +19,19 @@
 //Hello! This is the start of the JavaScript.
 
 var displayIdea = function(idea) {
-  var ideaElement = $('<h2>' + '<img src="' + idea.url + '">' + " submitted by " + idea.author + ": " + idea.text + '</h2>');
+  var ideaElement = $('<h2>' + '<img src="' + idea.url + '">' + " submitted by " + idea.author + ": " + idea.text + ".  Like Count:<span class='like'> " + idea.likes  + '</span></h2>');
   $(".idea-box").append(ideaElement);
 
+  var updateLikes = function(idea) {
+      ideaElement.find(".like").text(idea.likes);
+  }
+
   ideaElement.on("click", function() {
-        alert("You liked: " + idea.text + "!");
+    var data = {};
+data.postId = idea.id;
+$.post("/liked", data, updateLikes);
+
+
     });
 
 }
