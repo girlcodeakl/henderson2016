@@ -12,20 +12,29 @@
     <li><a href="/post.html">Post</a></li>
   </ul>
   <form  method="post" action="/ideas"  class=jquary  >
-    <input type="text" name="idea" placeholder="Give us your ideas here" class=ideaInput>
+
+  <br>Post<br>
+    <input type="text" name="idea" placeholder="Submit your ideas here..." class=ideaInput>
+    <br><br>Name<br>
+    <input type="text" name="author" placeholder="Enter your name here..." class=authorInput>
+    br><br>Image<br>
+    <input type="text" name="url" placeholder="Enter image URL here..." class=urlInput>
     <input type="submit" value="Submit">
   </form>
-  <div class="note"></div>
+  <div class="note"> </div>
   <script>
   var myCoolFunction = function (e) {
     e.preventDefault();
     var data = {};
     data.idea = $(".ideaInput").val();
+    data.author = $(".authorInput").val();
+      data.url = $(".urlInput").val();
     $.post( "/ideas" , data );
 
-    $(".note").text("Thanks! Your idea was submitted");
+    $(".note").text("Thanks! Your idea was submitted!");
   }
   $(".jquary").on("submit", myCoolFunction);
+
   </script>
 </body>
 </html>

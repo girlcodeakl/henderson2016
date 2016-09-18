@@ -4,16 +4,16 @@
     <meta charset='utf-8'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
-    <title>Idea Feed</title>
+    <title>Girl Coding Feed</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
 <body>
     <ul>
   <li><a href="/feed.html">Home</a></li>
   <li><a href="/index.html">Index</a></li>
-  <li><a href="/post.html">Post</a></li>
+  <li><a href="/post.html">Post</a></li><br>
 </ul>
-    <h1 class="title">Idea Feed</h1>
+    <h1 class="title">Girl Coding Feed</h1>
     <div class="idea-box">
    </div>
 
@@ -22,8 +22,20 @@
 
 var displayIdea = function(idea) {
   if (idea.time === undefined){idea.time = new Date()}
-var ideaElement = $('<h2>' + idea.text + '<div class=\'time\'>'+ $.format.prettyDate(idea.time) + '</div>' + '<div class="postId">' + idea.id  +'</div>' + '</h2>');
+  var ideaElement = $('<h2 class="ideaElement">' + '<img src="' + idea.url + '">' + " submitted by " + idea.author + ": " + idea.text + ".  Like Count:<span class='like'> " + idea.likes  + '</span>' + '<div class=\'time\'>'+ $.format.prettyDate(idea.time) + '</div>' + '<div class="postId">' + idea.id + '</div>' + '</h2>');
   $(".idea-box").append(ideaElement);
+
+  var updateLikes = function(idea) {
+      ideaElement.find(".like").text(idea.likes);
+  }
+
+  ideaElement.on("click", function() {
+    var data = {};
+data.postId = idea.id;
+$.post("/liked", data, updateLikes);
+
+
+    });
 
 }
 
