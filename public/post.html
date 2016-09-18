@@ -14,6 +14,7 @@
   <form  method="post" action="/ideas"  class=jquary  >
     <input type="text" name="idea" placeholder="Give us your ideas here" class=ideaInput>
       <input type="text" name="author" placeholder="Give us your name here" class=authorInput>
+          <input type="text" name="url" placeholder="Give us the url of your image" class=urlInput>
     <input type="submit" value="Submit">
   </form>
   <div class="note"> </div>
@@ -23,6 +24,7 @@
     var data = {};
     data.idea = $(".ideaInput").val();
     data.author = $(".authorInput").val();
+      data.url = $(".urlInput").val();
     $.post( "/ideas" , data );
 
     $(".note").text("Thanks! Your idea was submitted");

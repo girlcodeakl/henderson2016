@@ -15,6 +15,7 @@ app.use(bodyParser.json())
 var posts = [];
 var idea = {};
 idea.id = 1001;
+idea.url = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg"
 idea.text = "Two cats who solve crimes in Dunedin";
 posts.push(idea);
 
@@ -28,9 +29,11 @@ app.get('/ideas', sendIdeasList);
 var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
   console.log(request.body.author);
+  console.log(request.body.url);
   var idea = {};
 idea.text = request.body.idea;
 idea.author = request.body.author;
+idea.url = request.body.url;
 idea.id = Math.round(Math.random() * 10000);
 posts.push(idea);
   response.send("thanks for your idea. Press back to add another");
