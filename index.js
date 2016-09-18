@@ -17,7 +17,7 @@ var idea = {};
 idea.likes = 0;
 idea.id = 1001;
 idea.url = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg"
-idea.text = "Two cats who solve crimes in Dunedin";
+idea.text = "Love - A";
 idea.time = new Date();
 posts.push(idea);
 
@@ -41,7 +41,13 @@ idea.author = request.body.author;
 idea.url = request.body.url;
 if (idea.url===""){
   idea.url="https://thumbs.dreamstime.com/thumb_659/6599242.jpg"
+
+
 }
+images {
+    max-width:20px;
+}
+
 idea.id = Math.round(Math.random() * 10000);
 idea.time = new Date();
 posts.push(idea);
@@ -51,7 +57,7 @@ posts.push(idea);
   var dbPosts = database.collection('posts');
 dbPosts.insert(idea);
 
-}
+
 
 var deleteIdea = function (request, response) {
   console.log(request.body.Id); //write it on the command prompt so we can see
