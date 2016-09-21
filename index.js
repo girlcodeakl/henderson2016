@@ -78,9 +78,14 @@ app.post("/liked", function (req, res) {
     var results = posts.filter(function (post) { return post.id == searchId; });
     if (results.length > 0) {
      idea = results[0]
+
+     var dbPosts = database.collection('posts');
+     dbPosts.update({id: idea.id}, idea);
      idea.likes = idea.likes + 1}
      console.log(results)
      res.send(idea);
+
+
 
    });
 
