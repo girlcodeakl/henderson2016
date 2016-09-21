@@ -22,7 +22,7 @@
 
 var displayIdea = function(idea) {
   if (idea.time === undefined){idea.time = new Date()}
-  var ideaElement = $('<h2 class="ideaElement">' + '<img src="' + idea.url + '">' + '<br>' + " submitted by " + idea.author + ": " + idea.text + "." + '<br>' + "Like Count:<span class='like'> " + idea.likes  + '</span>' + '<div class=\'time\'>'+ $.format.prettyDate(idea.time) + '</div>' + '<div class="postId">' + idea.id + '</div>' + '</h2>');
+  var ideaElement = $('<h2 class="ideaElement">' + '<img src="' + idea.url + '">' + '<br>' + " Submitted by " + idea.author + ": " + idea.text + "." + '<br>' + "Like Count:<span class='like'> " + idea.likes  + '</span>' + '<div class=\'time\'>'+ $.format.prettyDate(idea.time) + '</div>' + '<div class="postId">' + idea.id + '</div>' + '</h2>');
   $(".idea-box").append(ideaElement);
 
   var updateLikes = function(idea) {
