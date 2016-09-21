@@ -60,7 +60,10 @@ app.post("/liked", function (req, res) {
    var results = posts.filter(function (post) { return post.id == searchId; });
    if (results.length > 0) {
      idea = results[0]
-  idea.likes = idea.likes + 1}
+  idea.likes = idea.likes + 1
+var dbPosts = datatbase.collection('posts');
+dbPosts.update({id: idea.id}, idea);
+}
 console.log(results)
 res.send(idea);
 
