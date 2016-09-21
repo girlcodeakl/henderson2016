@@ -32,6 +32,13 @@ h2 {
   width:800px;
 
 }
+
+ p {
+ text-align: center;
+ font-size: 60px;
+ color: black;
+}
+
 img{
   max-width: 50%;
   max-height:100%;
